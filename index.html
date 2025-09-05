@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestor Gerardo - Masajes Terapéuticos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a8f7c;
+            --secondary: #e9c46a;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #264653;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-description {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            font-style: italic;
+            color: #555;
+            text-align: center;
+        }
+        
+        .specialties {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .specialty-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-info {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+        }
+        
+        .contact-method:hover {
+            color: var(--accent);
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .cta-section {
+                padding: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <!-- Reemplaza "nestor-gerardo.jpg" con la ruta correcta de tu imagen -->
+            <img src="img/nestor-gerardo.jpeg" alt="Nestor Gerardo - Masajista profesional" class="profile-img">
+            <div class="logo">Nestor Gerardo</div>
+        </div>
+        <h1>Masajista Lomi Lomi</h1>
+        <p class="tagline">Fusion ancestral hawaiana con técnicas de relajación profunda.</p>
+
+        <p class="tagline"></p>¡Menos estrés, más control!</p>
+
+        <p class="tagline"></p>¡Tu cuerpo, tu decisión!</p>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Servicios</h2>
+        
+        <div class="services">
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Masaje Relajante Integral</h3>
+                </div>
+                <div class="service-content">
+                    <div class="service-description">
+                        <!-- Espacio para descripción del Masaje Relajante Integral -->
+                        Escape total del estrés. Un masaje suave y armonioso que te transporta a un estado de paz profunda. Ideal para desconectar y recargar energías.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Masaje Terapéutico Tuiná (Chino)</h3>
+                </div>
+                <div class="service-content">
+                    <div class="service-description">
+                        <!-- Espacio para descripción del Masaje Terapéutico Tuiná -->
+                        Alivia el dolor y equilibra tu energía. Técnica milenaria china que libera bloqueos y trata molestias específicas. Recupera tu bienestar integral.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Masaje Descontracturante</h3>
+                </div>
+                <div class="service-content">
+                    <div class="service-description">
+                        <!-- Espacio para descripción del Masaje Descontracturante -->
+                        Solución directa para tu dolor. Enfocado en zonas de tensión (espalda, cuello). Libera contracturas y alivia la rigidez de forma efectiva.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <h3>Masaje Especial Ancestral Lomi Lomi Nui</h3>
+                </div>
+                <div class="service-content">
+                    <div class="service-description">
+                        <!-- Espacio para descripción del Masaje Lomi Lomi Nui -->
+                        Una experiencia transformadora. Viaje sensorial hawaiano con movimientos fluidos que renuevan cuerpo, mente y espíritu. Nuestra joya única.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h3>Contacto</h3>
+            <div class="contact-methods">
+                    <a href="https://wa.me/5358784631" target="_blank" rel="noopener noreferrer" class="contact-method">
+                        <i class="fab fa-whatsapp contact-icon"></i>
+                        <span>+53 5 8784631</span>
+                    </a>
+                <a href="https://www.instagram.com/n3storg_touch" target="_blank" class="contact-method">
+                    <i class="fab fa-instagram contact-icon"></i>
+                    <span>@n3storg_touch</span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="specialties">
+        <div class="specialty-container">
+            <div class="cta-section">
+                <h2>¿Listo para transformar tu día?</h2>
+                <p>No esperes más. Tu bienestar es ahora.<br>¡Reserva tu masaje YA MISMO!</p>
+                <a href="https://wa.me/5358784631" target="_blank" rel="noopener noreferrer" class="cta-button">¡Reservar Ahora!</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Situados en: 
+Avenida 43 #19013 E/calle 190 y 194, Reparto Versalles, La Lisa, La Habana, Cuba</p>
+        <p>© 2025 Nestor Gerardo - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
