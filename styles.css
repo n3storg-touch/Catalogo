@@ -60,12 +60,24 @@
  .benefit-tag:hover i { color:var(--text-invert); }
 
 /* Service actions */
-.service-actions { margin-top:.6rem; display:flex; justify-content:flex-start; }
+.service-actions { margin-top:.6rem; display:flex; justify-content:flex-start; gap:.5rem; flex-wrap:wrap; }
 .service-whatsapp { display:inline-flex; align-items:center; gap:.45rem; background:var(--primary); color:var(--text-invert); text-decoration:none; font-size:.72rem; padding:.45rem .85rem; border-radius:var(--radius-pill); font-weight:600; letter-spacing:.3px; border:1px solid var(--primary); transition:var(--transition); }
 .service-whatsapp i { font-size:.8rem; color:var(--secondary); }
 .service-whatsapp:hover, .service-whatsapp:focus-visible { background:var(--secondary); color:var(--primary); outline:none; border-color:var(--secondary); }
 .service-whatsapp:hover i, .service-whatsapp:focus-visible i { color:var(--primary); }
 
+/* Botón de información externa */
+.service-info { display:inline-flex; align-items:center; gap:.4rem; background:var(--bg-soft); color:var(--primary); text-decoration:none; font-size:.72rem; padding:.45rem .8rem; border-radius:var(--radius-pill); font-weight:600; letter-spacing:.2px; border:1px solid var(--border); transition:var(--transition); }
+.service-info i { font-size:.75rem; color:var(--secondary); }
+.service-info:hover, .service-info:focus-visible { background:var(--primary); color:var(--text-invert); border-color:var(--primary); outline:none; }
+.service-info:hover i, .service-info:focus-visible i { color:var(--text-invert); }
+
+/* Botón de video informativo */
+.service-video { display:inline-flex; align-items:center; gap:.4rem; background:var(--bg-alt); color:var(--primary); text-decoration:none; font-size:.72rem; padding:.45rem .85rem; border-radius:var(--radius-pill); font-weight:600; letter-spacing:.2px; border:1px solid var(--secondary); transition:var(--transition); }
+.service-video i { font-size:.8rem; color: var(--secondary); }
+.service-video:hover, .service-video:focus-visible { background: var(--secondary); color: var(--primary); outline:none; }
+.service-video:hover i, .service-video:focus-visible i { color: var(--primary); }
+.service.video 
  /* Contact */
  .contact-info { background:var(--bg-alt); border:1px solid var(--border); border-radius:var(--radius); padding:1.9rem 1.3rem; max-width:760px; margin:2.2rem auto; text-align:center; }
  .contact-info h3 { font-size:1.35rem; margin:0 0 1.2rem; font-weight:600; color:var(--primary); }
